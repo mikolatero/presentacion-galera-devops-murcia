@@ -141,12 +141,13 @@
 \begin{frame}
 	\frametitle{¿Que pasa al agregar un nodo al cluster?}
 	Al agregar un nodo al cluster pueden ocurrir tres cosas:
+	\pause
 	\begin{itemize}
-		\item Sea completamente nuevo
+		\item Nodo completamente nuevo
 		\pause
-		\item Haya estado en el cluster con anterioridad y se haya detenido correctamente
+		\item Nodo que haya estado en el cluster con anterioridad y se haya detenido correctamente
 		\pause
-		\item Que se haya detenido inesperadamente
+		\item Nodo que se haya detenido inesperadamente
 	\end{itemize}
 \end{frame}
 
@@ -199,10 +200,35 @@
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tenemos_xtrabackup}	
 	
 \end{frame}
-	
-	
-	
-	
+
+
+\begin{frame}
+	\frametitle{Percona XtraBackup}
+	Percona XtraBackup se basa en la caracteristica 'crash-recovery' de InnoDB.
+	\pause
+	\begin{itemize}
+		\item Primero copia los ficheros de InnoDB, pero esto deja la copia inconsistente
+		\pause
+		\item Una vez que se han copiado los ficheros, se realiza el proceso de 'crash-recovery'
+		\pause
+		\item Obtienes una copia exacta, perfectamente funcional y pudiéndola recuperar en otro nodo o nuevo nodo
+		\pause
+		\item Todo esto sin tener que bloquear las tablas, zero-downtime o ralentización
+		\pause
+		\item ¡Pero ojo! Si tu base de datos tiene tablas en MyISAM si tendrá que bloquearlas
+	\end{itemize}
+\end{frame}
+
+
+
+\title[Rompamos Cosas]{Rompamos Cosas}
+
+\begin{frame}
+	\centering
+	\mbox{Ahora toca.....}
+	\pause
+	\mbox{Probar Galera}	
+\end{frame}
 	
 	
 \end{document}
